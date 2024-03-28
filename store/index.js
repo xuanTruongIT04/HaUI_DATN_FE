@@ -1,23 +1,23 @@
 import auth from "./auth-core";
 
 export const state = () => ({
-  toy: {},
+  bill: {},
 });
 
 export const mutations = {
-  SET_EXAMPLE_ONE(state, data) {
-    state.toy = data;
+  SET_BILL_DATA(state, data) {
+    state.bill = data;
   },
 };
 
 export const actions = {
-  setExampleOne({ commit }, data) {
-    commit('SET_EXAMPLE_ONE', data);
+  setBillData({ commit }, data) {
+    commit('SET_BILL_DATA', data);
   },
 };
 
 export const getters = {
-  getExampleOne: (state) => state.toy,
+  getBillData: (state) => state.bill,
 };
 
 export const modules = {
