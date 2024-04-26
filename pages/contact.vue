@@ -9,7 +9,7 @@
 							<h2>Contact Form</h2>
 							<p>There are many variations of passages of Lorem Ipsum available, but the majority Lorem Ipsum available.</p>
 						</div>
-						<form id="contact-form" action="https://d29u17ylf1ylz9.cloudfront.net/sabujcha/assets/mail.php" method="post">
+						<form id="contact-form" action="https://d29u17ylf1ylz9.cloudfront.net/Lotus Thé/assets/mail.php" method="post">
 							<div class="row">
 								<div class="col-lg-6">
 									<div class="contact-form-style mb-20">
@@ -76,7 +76,7 @@
 						<div id="store-location">
 							<div class="contact-map pt-80">
 								<div id="map" style="overflow:hidden; height: 700px!important;">
-									<img 
+									<img
 									style="width: 100%; height: auto;"
 									object-fit="contain"
 									src="https://timviec365.vn/pictures/videos/2023/01/03/01672737779316099516_638692661412583_4411996143298775264_n.jpg" />
@@ -97,5 +97,5 @@ export default {
 }
 </script>
 <style lang="">
-    
+
 </style>
