@@ -89,7 +89,7 @@
             <div class="copyright">
               <p>
                 <a target="_blank" to="https://www.templateshub.net"
-                  >Templates Hub</a
+                  >Lotus <b>THÉ</b></a
                 >
               </p>
             </div>

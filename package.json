@@ -1,0 +1,28 @@
+{
+  "name": "Lotus Thé",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@nuxtjs/auth-next": "5.0.0-1667386184.dfbbb54",
+    "@nuxtjs/axios": "^5.13.6",
+    "cookie-universal-nuxt": "^2.2.2",
+    "core-js": "^3.25.3",
+    "date-fns": "^2.30.0",
+    "nuxt": "^2.15.8",
+    "sweetalert2": "^11.7.20",
+    "vee-validate": "^2.2.15",
+    "vue": "^2.7.10",
+    "vue-cookies": "^1.8.3",
+    "vue-server-renderer": "^2.7.10",
+    "vue-slider-component": "^3.2.24",
+    "vue-template-compiler": "^2.7.10",
+    "vue-toastification": "^1.7.14",
+    "vuejs-paginate": "^2.1.0"
+  }
+}

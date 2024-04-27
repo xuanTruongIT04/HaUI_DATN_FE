@@ -145,7 +145,7 @@
                         <h4>Change Password</h4>
                         <h5>Your Password</h5>
                       </div>
-                      <div class="row lotus">
+                      <div class="row">
                         <div class="col-lg-12 col-md-12">
                           <div class="billing-info">
                             <div class="form-control-a">
