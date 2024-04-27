@@ -1,8 +1,11 @@
 export default {
-  methods: {
-    exampleSplitMultiSeparators(stringABC) {
-      let arrayABC = stringABC.split(', ');
-      return arrayABC;
+    methods: {
+        limitCharacters(text, limit) {
+            if (text.length > limit) {
+                return text.substring(0, limit) + '...';
+            } else {
+                return text;
+            }
+        }
     }
-  }
 }

@@ -1,8 +1,8 @@
-const abc = {
-    "EXAMPLE-1": 111,
-    "EXAMPLE-2": 222
+const StatusFavotes = {
+    "ACTIVE": 0,
+    "INACTIVE": 1,
 }
 
 export {
-  abc
+    StatusFavotes
 }
