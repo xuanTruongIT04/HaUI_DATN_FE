@@ -3,6 +3,12 @@ const StatusFavotes = {
     "INACTIVE": 1,
 }
 
+const CheckoutMethods = {
+  "CASH": 0,
+  "BANKING_INTERNET": 1,
+}
+
 export {
-    StatusFavotes
+    StatusFavotes,
+    CheckoutMethods
 }

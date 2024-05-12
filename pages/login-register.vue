@@ -11,14 +11,14 @@
                 href="#lg1"
                 @click="$nuxt.$emit('titleBreadCrumb', titleLogin)"
               >
-                <h4 @click="refreshPage">login</h4>
+                <h4 @click="refreshPage">Đăng nhập</h4>
               </a>
               <a
                 data-toggle="tab"
                 href="#lg2"
                 @click="$nuxt.$emit('titleBreadCrumb', titleRegister)"
               >
-                <h4 @click="refreshPage">register</h4>
+                <h4 @click="refreshPage">Đăng ký</h4>
               </a>
             </div>
             <div class="tab-content">
@@ -32,7 +32,7 @@
                           name="user-name"
                           v-model="username"
                           @input="refreshErrors"
-                          placeholder="Username"
+                          placeholder="Tên tài khoản"
                         />
                         <span
                           v-if="errors && errors.username"
@@ -48,7 +48,7 @@
                           name="user-password"
                           @input="refreshErrors"
                           v-model="password"
-                          placeholder="Password"
+                          placeholder="Mật khẩu"
                         />
                         <span
                           v-if="errors && errors.password"
@@ -66,11 +66,11 @@
                             v-bind:checked="remember_me"
                             @change="toggleRememberMe"
                           />
-                          <label for="remember_me">Remember me</label>
-                          <NuxtLink to="/forgot-password">Forgot Password?</NuxtLink>
+                          <label for="remember_me">Nhớ tôi</label>
+                          <NuxtLink to="/forgot-password">Quên mật khẩu?</NuxtLink>
                         </div>
                         <button @click.prevent="login">
-                          <span>Login</span>
+                          <span>Đăng nhập</span>
                         </button> <br>
                         <span
                           v-if="errors && errors.account"
@@ -94,7 +94,7 @@
                           type="email"
                           name="user-email"
                           v-model="email"
-                          placeholder="Email"
+                          placeholder="Địa chỉ email"
                         />
                         <span
                           v-if="errors && errors.email"
@@ -108,7 +108,7 @@
                           type="text"
                           name="user-name"
                           v-model="username"
-                          placeholder="Username"
+                          placeholder="Tên tài khoản"
                         />
                         <span
                           v-if="errors && errors.username"
@@ -123,7 +123,7 @@
                           type="password"
                           name="user-password"
                           v-model="password"
-                          placeholder="Password"
+                          placeholder="Mật khẩu"
                         />
                         <span
                           v-if="errors && errors.password"
@@ -133,7 +133,7 @@
                         >
                       </div>
                       <div class="button-box">
-                        <button @click.prevent="register"><span>Register</span></button>
+                        <button @click.prevent="register"><span>Đăng ký</span></button>
                       </div>
                       <span
                         v-if="errors && errors.account"

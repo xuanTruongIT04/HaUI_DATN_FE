@@ -14,7 +14,7 @@
                       data-toggle="collapse"
                       data-parent="#faq"
                       to="#my-account-1"
-                      >Edit your account information
+                      >CHỈNH SỬA THÔNG TIN TÀI KHOẢN
                     </a>
                   </h5>
                 </div>
@@ -22,14 +22,14 @@
                   <div class="panel-body">
                     <div class="billing-information-wrapper">
                       <div class="account-info-wrapper">
-                        <h4>My Account Information</h4>
-                        <h5>Your Personal Details</h5>
+                        <h4>Thông tin tài khoản của tôi</h4>
+                        <h5>Thông tin cá nhân của bạn</h5>
                       </div>
                       <div class="row">
                         <div class="col-lg-6 col-md-6">
                           <div class="billing-info">
                             <div class="form-control-a">
-                              <label for="first-name">First Name</label>
+                              <label for="first-name">Tên của bạn</label>
                               <input
                                 id="first-name"
                                 type="text"
@@ -49,7 +49,7 @@
                         <div class="col-lg-6 col-md-6">
                           <div class="billing-info">
                             <div class="form-control-a">
-                              <label for="last-name">Last Name</label>
+                              <label for="last-name">Họ của bạn</label>
                               <input
                                 id="last-name"
                                 type="text"
@@ -69,7 +69,7 @@
                         <div class="col-lg-12 col-md-12">
                           <div class="billing-info">
                             <div class="form-control-a">
-                              <label for="email">Email Address</label>
+                              <label for="email">Địa chỉ email</label>
                               <input
                                 type="email"
                                 id="email"
@@ -83,7 +83,7 @@
                         <div class="col-lg-6 col-md-6">
                           <div class="billing-info">
                             <div class="form-control-a">
-                              <label for="phone">Telephone</label>
+                              <label for="phone">Điện thoại</label>
                               <input id="phone" type="text" v-model="phone" />
                               <span
                                 v-if="errors && errors.phone"
@@ -112,13 +112,12 @@
                       <div class="billing-back-btn">
                         <div class="billing-back">
                           <NuxtLink to="/cart-page"
-                            ><i class="fa fa-shopping-cart mr-2"></i> back to
-                            cart</NuxtLink
+                            ><i class="fa fa-shopping-cart mr-2"></i> Quay lại giỏ hàng</NuxtLink
                           >
                         </div>
                         <div class="billing-btn">
                           <button @click.prevent="update_infor">
-                            Continue
+                            Tiếp tục
                           </button>
                         </div>
                       </div>
@@ -134,7 +133,7 @@
                       data-toggle="collapse"
                       data-parent="#faq"
                       to="#my-account-2"
-                      >Change your password
+                      >Thay đổi mật khẩu
                     </a>
                   </h5>
                 </div>
@@ -142,14 +141,14 @@
                   <div class="panel-body">
                     <div class="billing-information-wrapper">
                       <div class="account-info-wrapper">
-                        <h4>Change Password</h4>
-                        <h5>Your Password</h5>
+                        <h4>Thay đổi mật khẩu</h4>
+                        <h5>Mật khẩu của bạn</h5>
                       </div>
                       <div class="row">
                         <div class="col-lg-12 col-md-12">
                           <div class="billing-info">
                             <div class="form-control-a">
-                              <label>Password Old</label>
+                              <label>Mật khẩu cũ</label>
                               <input type="password" v-model="password_old" />
                               <span
                                 v-if="errors && errors.password"
@@ -165,7 +164,7 @@
                         <div class="col-lg-12 col-md-12">
                           <div class="billing-info">
                             <div class="form-control-a">
-                              <label>New Password</label>
+                              <label>Mật khẩu mới</label>
                               <input type="password" v-model="new_password" />
                               <span
                                 v-if="errors && errors.new_password"
@@ -183,7 +182,7 @@
                         <div class="col-lg-12 col-md-12">
                           <div class="billing-info">
                             <div class="form-control-a">
-                              <label>New Password Confirm</label>
+                              <label>Xác nhận mật khẩu mới</label>
                               <input
                                 type="password"
                                 v-model="new_password_confirmation"
@@ -206,11 +205,11 @@
                       </div>
                       <div class="billing-back-btn">
                         <div class="billing-back">
-                          <a><i class="ion-arrow-up-c"></i> back</a>
+                          <a><i class="ion-arrow-up-c"></i> Quay lại</a>
                         </div>
                         <div class="billing-btn">
                           <button @click.prevent="change_password">
-                            Continue
+                            Tiếp tục
                           </button>
                         </div>
                       </div>

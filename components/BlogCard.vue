@@ -13,7 +13,7 @@
         </NuxtLink>
       </h3>
       <p v-html="limitCharacters(blog.description, 140)"></p>
-      <NuxtLink :to="`post/${blog.id}`">Read More</NuxtLink>
+      <NuxtLink :to="`post/${blog.id}`">Xem thêm</NuxtLink>
     </div>
   </div>
 </template>

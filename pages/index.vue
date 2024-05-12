@@ -37,8 +37,8 @@
                   <img src="~/static/img/banner/banner-1.png" alt="" />
                 </a>
                 <div class="banner-content">
-                  <h4>-15% Sale</h4>
-                  <h5>Summer Vacation</h5>
+                  <h4>-15% Giảm giá</h4>
+                  <h5>KÌ NGHỈ HÈ</h5>
                 </div>
               </div>
             </div>
@@ -48,8 +48,8 @@
                   <img src="~/static/img/banner/banner-2.png" alt="" />
                 </a>
                 <div class="banner-content">
-                  <h4>-14% Sale</h4>
-                  <h5>Winter Vacation</h5>
+                  <h4>-14% Giảm giá</h4>
+                  <h5>KỲ NGHỈ ĐÔNG</h5>
                 </div>
               </div>
             </div>
@@ -61,7 +61,7 @@
     <!-- New Products Start -->
     <div class="product-area gray-bg pt-90 pb-65">
       <div class="container">
-        <SectionTitle title="New Products" />
+        <SectionTitle title="Sản phẩm mới" />
         <div class="tab-content jump">
           <div class="tab-pane active">
             <div class="featured-product-active owl-carousel product-nav">
@@ -151,7 +151,7 @@
     <!-- Testimonial Area End -->
     <!-- News Area Start -->
     <div class="blog-area bg-image-1 pt-90 pb-70" v-if="postLatest.length">
-      <div class="container"><SectionTitle title="Latest News" /></div>
+      <div class="container"><SectionTitle title="Bài viết" /></div>
       <div class="container">
         <div class="row">
           <div
@@ -168,7 +168,7 @@
     <!-- Newsletter Area Start -->
     <div class="newsletter-area bg-image-2 pt-90 pb-100">
       <div class="container">
-        <SectionTitle title="Join to our Newsletter" />
+        <SectionTitle title="Tham gia vào bản tin của chúng tôi" />
       </div>
       <div class="container">
         <div class="row justify-content-md-center">
@@ -190,7 +190,7 @@
                       value=""
                       name="EMAIL"
                       class="email"
-                      placeholder="Your Email Address*"
+                      placeholder="Địa chỉ email*"
                       required
                     />
                     <div class="mc-news" aria-hidden="true">

@@ -2,7 +2,7 @@
   <div class="col-lg-3">
     <div class="shop-sidebar-wrapper gray-bg-7 shop-sidebar-mrg" v-if="!isLoadingSpinner">
       <div class="shop-widget">
-        <h4 class="shop-sidebar-title">Shop By Categories</h4>
+        <h4 class="shop-sidebar-title">Lọc sản phẩm</h4>
         <div class="shop-catigory">
           <ul id="faq">
             <MenuItem
@@ -15,9 +15,9 @@
       </div>
       <!-- Start Slide range -->
       <div class="shop-price-filter mt-40 shop-sidebar-border pt-35">
-        <h4 class="shop-sidebar-title">Price Filter</h4>
+        <h4 class="shop-sidebar-title">Khoảng giá</h4>
         <div class="price_filter mt-25">
-          From $0 to ${{ maxPrice }}
+          Từ $0 đến ${{ maxPrice }}
           <vue-slider
             v-if="isDataLoaded"
             :min="0"
@@ -32,7 +32,7 @@
                 type="text"
                 id="amount"
                 name="price"
-                placeholder="Drag and drop to filter"
+                placeholder="Kéo và thả để lọc"
               />
             </div>
           </div>
@@ -40,7 +40,7 @@
       </div>
       <!-- End Slide range -->
       <div class="shop-widget mt-40 shop-sidebar-border pt-35">
-        <h4 class="shop-sidebar-title">By Brand</h4>
+        <h4 class="shop-sidebar-title">Theo thương hiệu</h4>
         <div class="sidebar-list-style mt-20">
           <ul>
             <li v-for="brand in allBrands" :key="brand.id">
@@ -55,7 +55,7 @@
         </div>
       </div>
       <div class="shop-widget mt-40 shop-sidebar-border pt-35">
-        <h4 class="shop-sidebar-title">By Color</h4>
+        <h4 class="shop-sidebar-title">Theo màu sắc</h4>
         <div class="sidebar-list-style mt-20">
           <ul>
             <li
@@ -70,11 +70,11 @@
         </div>
       </div>
       <div class="shop-widget mt-40 shop-sidebar-border pt-35">
-        <h4 class="shop-sidebar-title">Compare Products</h4>
+        <h4 class="shop-sidebar-title">So sánh sản phẩm</h4>
         <div class="compare-product">
-          <p>You have {{ qtyProductCompare }} item to compare.</p>
+          <p>Bạn có {{ qtyProductCompare }} sản phẩm để so sánh.</p>
           <div class="compare-product-btn">
-            <span class="clear-all mt-2 d-inline-block" @click="clearAll()">Clear all</span>
+            <span class="clear-all mt-2 d-inline-block" @click="clearAll()">Xoá tất cả</span>
             <a
               v-if="statusCompare && qtyProductCompare === 2"
               @click.prevent="openPopup()"
@@ -83,7 +83,7 @@
               class="action-compare preview-product"
               data-target="#compareModel"
               data-toggle="modal"
-              >Compare
+              >So sánh
               <i class="fa fa-check"></i>
             </a>
             <a
@@ -92,13 +92,13 @@
               @click.prevent="compareProduct()"
               tooltip="You have to choose 2 products to compare!"
               title="You have to choose 2 products to compare!"
-              >Select to compare <i class="fa fa-hand-pointer-o"></i
+              >Chọn để so sánh <i class="fa fa-hand-pointer-o"></i
             ></a>
           </div>
         </div>
       </div>
       <div class="shop-widget mt-40 shop-sidebar-border pt-35">
-        <h4 class="shop-sidebar-title">Popular Tags</h4>
+        <h4 class="shop-sidebar-title">Thẻ phổ biến</h4>
         <div class="shop-tags mt-25">
           <ul>
             <li
@@ -110,7 +110,7 @@
               <span>{{ tag.name }}</span>
             </li>
           </ul>
-            <span @click="clearTag" class="clear-tag">Clear</span>
+            <span @click="clearTag" class="clear-tag">Xoá</span>
         </div>
       </div>
     </div>
