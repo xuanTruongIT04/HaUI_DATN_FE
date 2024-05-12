@@ -16,33 +16,33 @@
                 <nav>
                   <ul>
                     <li class="top-hover">
-                      <a href="/">home</a>
+                      <a href="/">Trang chủ</a>
                     </li>
                     <li>
-                      <NuxtLink to="/about-us">about</NuxtLink>
+                      <NuxtLink to="/about-us">Về chúng tôi</NuxtLink>
                     </li>
                     <li class="mega-menu-position top-hover">
-                      <NuxtLink to="/shop-list">shop</NuxtLink>
+                      <NuxtLink to="/shop-list">Cửa hàng</NuxtLink>
                     </li>
                     <li class="top-hover">
-                      <NuxtLink to="/blog-masonary">blog</NuxtLink>
+                      <NuxtLink to="/blog-masonary">Bài viết</NuxtLink>
                     </li>
                     <li>
-                        <a href="/wishlist" @click.prevent="conditionRedirect('/wishlist')">wishlist</a>
+                        <a href="/wishlist" @click.prevent="conditionRedirect('/wishlist')">Yêu thích</a>
                     </li>
                     <li>
-                      <NuxtLink to="/contact">contact</NuxtLink>
+                      <NuxtLink to="/contact">Liên hệ</NuxtLink>
                     </li>
                     <li class="top-hover">
-                      <a class="option-account">account</a>
+                      <a class="option-account">Tài khoản</a>
                       <ul class="submenu">
                         <li>
-                          <a href="/my-account" @click.prevent="conditionRedirect('/my-account')">my account</a>
+                          <a href="/my-account" @click.prevent="conditionRedirect('/my-account')">Tài khoản</a>
                         <li v-if="!isLogin">
-                          <NuxtLink to="/login-register">login / register</NuxtLink>
+                          <NuxtLink to="/login-register">Đăng nhập | Đăng ký</NuxtLink>
                         </li>
                         <li v-else-if="isLogin">
-                          <a @click="logout">logout</a>
+                          <a @click="logout">Đăng xuất</a>
                         </li>
                       </ul>
                     </li>
@@ -88,28 +88,27 @@
                       </div>
                     </li>
                     <p v-if="detailCarts.length > 5">
-                      And {{ detailCarts.length - 5 }} more other type of
-                      products...
+                      và {{ detailCarts.length - 5 }} loại sản phẩm khác...
                     </p>
                   </ul>
                   <div class="shopping-cart-total">
                     <h4>
                       <div>
-                        Total products:
+                        Tổng số lượng:
                         <span class="shop-total">
                           {{cart?.total_item}}
                         </span>
                       </div>
                       <div>
-                        Total price:
+                        Tổng giá:
                         <span class="shop-total">
                           ${{cart?.total_price}}</span>
                       </div>
                     </h4>
                   </div>
                   <div class="shopping-cart-btn">
-                    <a href="/cart-page" @click.prevent="conditionRedirect('/cart-page')">view cart</a>
-                    <NuxtLink to="/coupon">coupon</NuxtLink>
+                    <a href="/cart-page" @click.prevent="conditionRedirect('/cart-page')">Giỏ hàng</a>
+                    <NuxtLink to="/coupon">Phiếu KM</NuxtLink>
                   </div>
                 </div>
                 <div
@@ -139,21 +138,21 @@
           <div class="mobile-menu">
             <nav id="mobile-menu-active">
               <ul class="menu-overflow">
-                <li><a href="/">HOME</a></li>
+                <li><a href="/">TRANG CHỦ</a></li>
                 <li>
                   <a class="option-account">account</a>
                   <ul>
-                    <li><a href="/cart-page" @click.prevent="conditionRedirect('/cart-page')">cart page</a></li>
+                    <li><a href="/cart-page" @click.prevent="conditionRedirect('/cart-page')">Giỏ hàng</a></li>
                     <li><NuxtLink to="/coupon">coupon</NuxtLink></li>
-                    <li><a href="/wishlist" @click.prevent="conditionRedirect('/wishlist')">wishlist</a></li>
-                    <li><a href="/my-account" @click.prevent="conditionRedirect('/my-account')">my-account</a></li>
-                    <li><NuxtLink to="/contact">contact</NuxtLink></li>
-                    <li v-if="!isLogin"><NuxtLink to="/login-register">login / register</NuxtLink></li>
-                    <li v-else-if="isLogin"><a @click="logout">logout</a></li></ul>
+                    <li><a href="/wishlist" @click.prevent="conditionRedirect('/wishlist')">Yêu thích</a></li>
+                    <li><a href="/my-account" @click.prevent="conditionRedirect('/my-account')">Tài khoản</a></li>
+                    <li><NuxtLink to="/contact">Liên hệ</NuxtLink></li>
+                    <li v-if="!isLogin"><NuxtLink to="/login-register">Đăng nhậo / Đăng ký</NuxtLink></li>
+                    <li v-else-if="isLogin"><a @click="logout">Đăng xuất</a></li></ul>
                 </li>
-                <li><NuxtLink to="/shop-list">Shop</NuxtLink></li>
-                <li><NuxtLink to="/blog-masonary">BLOG</NuxtLink></li>
-                <li><NuxtLink to="/contact">contact</NuxtLink></li>
+                <li><NuxtLink to="/shop-list">Cửa hàng</NuxtLink></li>
+                <li><NuxtLink to="/blog-masonary">Bài viết</NuxtLink></li>
+                <li><NuxtLink to="/contact">Liên hệ</NuxtLink></li>
               </ul>
             </nav>
           </div>

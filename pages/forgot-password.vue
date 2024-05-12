@@ -22,7 +22,7 @@
                         type="email"
                         name="email"
                         v-model="email"
-                        placeholder="Your email"
+                        placeholder="Địa chỉ email"
                       />
                       <span
                           v-if="errors && errors.email"
@@ -36,7 +36,7 @@
                           class="btn-forgot"
                           @click.prevent="forgotPassword"
                         >
-                          <span>Send email</span>
+                          <span>Gửi thư</span>
                           <div
                             class="lds-ring loading"
                             :class="{ active: isPending }"
@@ -48,7 +48,7 @@
                           </div>
                         </button>
                         <div class="login-toggle-btn">
-                          <NuxtLink to="/login-register">Login or register?</NuxtLink>
+                          <NuxtLink to="/login-register">Đăng nhập hoặc đăng ký?</NuxtLink>
                         </div>
                       </div>
                     </form>

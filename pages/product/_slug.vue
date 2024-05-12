@@ -31,8 +31,8 @@
               <span>${{ priceNew }}</span>
               <div class="in-stock">
                 <p>
-                  Available: <span>{{ statusStock }}</span> <br>
-                  Quantity in stock: <span><b>{{ qtyInStock }}</b> product</span>
+                  Tình trạng: <span>{{ statusStock }}</span> <br>
+                  Số lượng trong kho: <span><b>{{ qtyInStock }}</b> sản phẩm</span>
                 </p>
               </div>
               <p v-html="product?.description"></p>
@@ -40,25 +40,23 @@
                 <ul class="list-options-tea">
                   <li>
                     <label for="express"><span class="stt mr-2">1. </span>
-                      Express Delivery: 1-2 day</label>
+                      Chuyển phát nhanh: 1-2 ngày</label>
                   </li>
                   <li>
-                    <label for="tea-set"><span class="stt mr-2">2. </span>Tea Set</label>
+                    <label for="tea-set"><span class="stt mr-2">2. </span>Bộ trà</label>
                   </li>
                   <li>
                     <label for="gift-box">
-                     <span class="stt mr-2">3. </span>Gift Box beautiful and elegant </label
-                    >
+                     <span class="stt mr-2">3. </span>Hộp quà đẹp và sang trọng</label>
                   </li>
                   <li>
                     <label for="tea-infuser">
-                      <span class="stt mr-2">4. </span>Tea Infuser</label
+                      <span class="stt mr-2">4. </span>Máy pha trà</label
                     >
                   </li>
                   <li>
                     <label for="tea-accessories-kit">
-                      <span class="stt mr-2">5. </span>Tea Accessories Kit
-                     </label
+                      <span class="stt mr-2">5. </span>Bộ phụ kiện trà</label
                     >
                   </li>
                 </ul>
@@ -123,7 +121,7 @@
                     </a>
                   </li>
                   <li v-if="product?.product_tags?.length === 0">
-                    <u><i>This product has no tags available...</i></u>
+                    <u><i>Sản phẩm này không có sẵn thẻ...</i></u>
                   </li>
                 </ul>
               </div>
@@ -137,9 +135,9 @@
       <div class="container">
         <div class="description-review-wrapper">
           <div class="description-review-topbar nav text-center">
-            <a class="active" data-toggle="tab" href="#des-details1">Description</a>
-            <a data-toggle="tab" href="#des-details2">Detail</a>
-            <a data-toggle="tab" href="#des-details3">Tags</a>
+            <a class="active" data-toggle="tab" href="#des-details1">Mô tả</a>
+            <a data-toggle="tab" href="#des-details2">Chi tiết</a>
+            <a data-toggle="tab" href="#des-details3">Các thẻ</a>
           </div>
           <div class="tab-content description-review-bottom">
             <div id="des-details1" class="tab-pane active">
@@ -168,7 +166,7 @@
                   </li>
 
                   <li v-if="product?.product_tags?.length === 0">
-                    <u><i>This product has no tags available...</i></u>
+                    <u><i>Sản phẩm này không có sẵn thẻ...</i></u>
                   </li>
                 </ul>
               </div>
@@ -181,7 +179,7 @@
       <div class="container">
         <div class="product-top-bar section-border mb-35">
           <div class="section-title-wrap">
-            <h3 class="section-title section-bg-white">Related Products</h3>
+            <h3 class="section-title section-bg-white">Sản phẩm tương tự</h3>
           </div>
         </div>
         <div class="hot-flower owl-carousel product-nav related-products">
@@ -273,8 +271,8 @@ export default {
       return this.product?.price;
     },
     statusStock() {
-      if (this.product.qty_sold < this.product.qty_import) return "In stock";
-      return "Out stock";
+      if (this.product.qty_sold < this.product.qty_import) return "Còn hàng";
+      return "Hết hàng";
     },
     isInStock() {
       if (this.product.qty_sold < this.product.qty_import) {

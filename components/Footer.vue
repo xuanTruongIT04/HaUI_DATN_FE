@@ -7,16 +7,16 @@
           <div class="col-lg-3 col-md-6 col-sm-6 pdy-0 pdx-15">
             <div class="footer-widget mb-40">
               <div class="footer-title mb-25">
-                <h4>My Account</h4>
+                <h4>Tài khoản</h4>
               </div>
               <div class="footer-content">
                 <ul>
-                  <li><NuxtLink to="/my-account">My Account</NuxtLink></li>
-                  <li><NuxtLink to="/about-us">Order History</NuxtLink></li>
-                  <li><NuxtLink to="/wishlist">WishList</NuxtLink></li>
-                  <li><NuxtLink to="">Newsletter</NuxtLink></li>
-                  <li><NuxtLink to="/about-us">Order History</NuxtLink></li>
-                  <li><NuxtLink to="/#">International Orders</NuxtLink></li>
+                  <li><NuxtLink to="/my-account">Tài khoản</NuxtLink></li>
+                  <li><NuxtLink to="/about-us">Về chúng tôi</NuxtLink></li>
+                  <li><NuxtLink to="/wishlist">Yêu thích</NuxtLink></li>
+                  <li><NuxtLink to="">Bản tin</NuxtLink></li>
+                  <li><NuxtLink to="/about-us">Về chúng tôi</NuxtLink></li>
+                  <li><NuxtLink to="/#">Đơn đặt hàng quốc tế</NuxtLink></li>
                 </ul>
               </div>
             </div>
@@ -24,16 +24,16 @@
           <div class="col-lg-3 col-md-6 col-sm-6 pdy-0 pdx-15">
             <div class="footer-widget mb-40">
               <div class="footer-title mb-25">
-                <h4>Information</h4>
+                <h4>Thông tin</h4>
               </div>
               <div class="footer-content">
                 <ul>
-                  <li><NuxtLink to="/about-us">About Us</NuxtLink></li>
-                  <li><NuxtLink to="">Delivery Information</NuxtLink></li>
-                  <li><NuxtLink to="">Privacy Policy</NuxtLink></li>
-                  <li><NuxtLink to="">Terms & Conditions</NuxtLink></li>
-                  <li><NuxtLink to="">Customer Service</NuxtLink></li>
-                  <li><NuxtLink to="">Return Policy</NuxtLink></li>
+                  <li><NuxtLink to="/about-us">Về chúng tôi</NuxtLink></li>
+                  <li><NuxtLink to="">Thông tin vận chuyển</NuxtLink></li>
+                  <li><NuxtLink to="">Chính sách bảo mật</NuxtLink></li>
+                  <li><NuxtLink to="">Điều khoản & Điều kiện</NuxtLink></li>
+                  <li><NuxtLink to="">Dịch vụ khách hàng</NuxtLink></li>
+                  <li><NuxtLink to="">Chính sách hoàn trả</NuxtLink></li>
                 </ul>
               </div>
             </div>
@@ -41,16 +41,16 @@
           <div class="col-lg-3 col-md-6 col-sm-6 pdy-0 pdx-15">
             <div class="footer-widget mb-40">
               <div class="footer-title mb-25">
-                <h4>Quick Links</h4>
+                <h4>Đường Dẫn Nhanh</h4>
               </div>
               <div class="footer-content">
                 <ul>
-                  <li><NuxtLink to="">Support Center</NuxtLink></li>
-                  <li><NuxtLink to="">Term & Conditions</NuxtLink></li>
-                  <li><NuxtLink to="">Shipping</NuxtLink></li>
-                  <li><NuxtLink to="">Privacy Policy</NuxtLink></li>
-                  <li><NuxtLink to="">Help</NuxtLink></li>
-                  <li><NuxtLink to="">FAQS</NuxtLink></li>
+                  <li><NuxtLink to="">Trung tâm hỗ trợ</NuxtLink></li>
+                  <li><NuxtLink to="">Điều khoản & Điều kiện</NuxtLink></li>
+                  <li><NuxtLink to="">Vận chuyển</NuxtLink></li>
+                  <li><NuxtLink to="">Chính sách bảo mật</NuxtLink></li>
+                  <li><NuxtLink to="">Trợ giúp</NuxtLink></li>
+                  <li><NuxtLink to="">Câu hỏi thường gặp</NuxtLink></li>
                 </ul>
               </div>
             </div>
@@ -60,20 +60,20 @@
               class="footer-widget footer-widget-red footer-black-color mb-40"
             >
               <div class="footer-title mb-25">
-                <h4>Contact Us</h4>
+                <h4>Liên hệ chúng tôi</h4>
               </div>
               <div class="footer-about">
-                <p>Your current address goes to here,120 haka, angladesh</p>
+                <p>Địa chỉ hiện tại, Quận Từ Liêm, Thành phố Hà Nội</p>
                 <div class="footer-contact mt-20">
                   <ul>
-                    <li>(+008) 254 254 254 25487</li>
-                    <li>(+009) 358 587 657 6985</li>
+                    <li>0374 993 702</li>
+                    <li>0348 080 722</li>
                   </ul>
                 </div>
                 <div class="footer-contact mt-20">
                   <ul>
-                    <li>yourmail@example.com</li>
-                    <li>example@admin.com</li>
+                    <li>nxt160602@gmail.com</li>
+                    <li>www.lotusthe.com</li>
                   </ul>
                 </div>
               </div>

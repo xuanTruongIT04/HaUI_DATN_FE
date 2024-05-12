@@ -11,7 +11,7 @@ export default {
   head() {
     return {
       link: [
-        { rel: "icon", type: "image/x-icon", href: "/img/favicon.png" },
+        { rel: "icon", type: "image/x-icon", href: "/img/logo.png" },
         { rel: "stylesheet", href: "/css/bootstrap.min.css" },
         { rel: "stylesheet", href: "/css/animate.css" },
         { rel: "stylesheet", href: "/css/owl.carousel.min.css" },

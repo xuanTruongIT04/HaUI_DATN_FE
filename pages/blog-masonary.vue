@@ -26,8 +26,8 @@
                     <div class="total-pages">
                         <div class="total-pages">
                             <p>
-                                Showing {{ startIndex }} - {{ endIndex }} of
-                                {{ totalResults }} results
+                                Hiển thị {{ startIndex }} - {{ endIndex }} trong
+                                {{ totalResults }} kết quả
                             </p>
                         </div>
                     </div>

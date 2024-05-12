@@ -1,7 +1,7 @@
 <template lang="">
   <div class="cart-main-area ptb-100">
     <div class="container">
-      <h3 class="page-title">Your wishlist items</h3>
+      <h3 class="page-title">Sản phẩm yêu thích</h3>
       <div class="row" v-if="wishlist.length > 0 && !ordered">
         <div class="col-lg-12 col-md-12 col-sm-12 col-12">
           <form action="#">
@@ -9,11 +9,11 @@
               <table>
                 <thead>
                   <tr>
-                    <th>Product Thumb</th>
-                    <th>Product Name</th>
-                    <th>Until Price</th>
-                    <th>Qty</th>
-                    <th>Subtotal</th>
+                    <th>Ảnh sản phẩm</th>
+                    <th>Tên sản phẩm</th>
+                    <th>Giá tiền</th>
+                    <th>Số lượng</th>
+                    <th>Tổng phụ</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -51,8 +51,8 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td>Total quantity</td>
-                    <td>Total price</td>
+                    <td>Tổng số lượng</td>
+                    <td>Tổng giá</td>
                   </tr>
                   <tr>
                     <td></td>
@@ -65,10 +65,10 @@
               </table>
               <div class="float-right product-wishlist-cart mt-5">
                 <a @click="removeAllProduct" class="pl-4 pr-4 mr-3 remove-all"
-                  >remove all product</a
+                  >Xoá tất cả</a
                 >
                 <a @click.prevent="addMultiToCart" href="#" class="pl-4 pr-4"
-                  >add to cart</a
+                  >Thêm giỏ hàng</a
                 >
               </div>
             </div>

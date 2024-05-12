@@ -47,9 +47,9 @@
                         >
                       </div>
                       <div class="button-box">
-                        <button @click.prevent="resetPassword"><span>Reset password</span></button>
+                        <button @click.prevent="resetPassword"><span>Lấy lại mật khẩu</span></button>
                         <div class="login-toggle-btn">
-                          <NuxtLink to="/login-register">Login or register?</NuxtLink>
+                          <NuxtLink to="/login-register">Đăng nhập hoặc đăng ký?</NuxtLink>
                         </div>
                       </div>
                     </form>

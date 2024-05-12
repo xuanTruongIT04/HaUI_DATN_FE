@@ -6,10 +6,9 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-12 d-flex align-items-center">
                         <div class="overview-content-2">
-							<h4>Welcome To</h4>
-                            <h2>Our Sabuj Cha Store!</h2>
-                            <p class="peragraph-blog">Phuler Shop is a premium HTML template designed and develoved from the ground up with the sole purpose of helping you create an astonishing, the beautiful and user friendly website that will boost your product’s sales.</p>
-                            <p>The theme design package provides a complete Magento theme set for your online store according to your desired theme. This includes all Magento themes that are required for your online store's successful implementation.</p>
+							<h4>Chào mừng bạn đến</h4>
+                            <h2>cửa hàng Lotus Thé của chúng tôi!</h2>
+                            <p class="peragraph-blog">Lotus Thé Shop là một mẫu HTML cao cấp được thiết kế và phát triển ngay từ đầu với mục đích duy nhất là giúp bạn tạo ra một trang web đáng kinh ngạc, đẹp và thân thiện với người dùng, giúp tăng doanh số bán sản phẩm của bạn.</p> <p>Gói thiết kế chủ đề cung cấp bộ chủ đề Magento hoàn chỉnh cho cửa hàng trực tuyến của bạn theo chủ đề bạn mong muốn. Điều này bao gồm tất cả các chủ đề Magento cần thiết để triển khai thành công cửa hàng trực tuyến của bạn.</p>
                             <div class="overview-btn mt-40">
                                 <img src="~static/img/icon-img/signature.png" alt="Candidate Signature">
                             </div>
@@ -36,25 +35,25 @@
                                 <div class="testimonial-img">
                                     <img alt="" src="~static/img/icon-img/testi.png">
                                 </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisici elit, sed do eiusmod tempor incididunt ut labore</p>
+                                <p>Điều quan trọng là phải chăm sóc bệnh nhân, theo dõi diễn biến của bệnh nhân, nhưng điều đó cũng xảy ra theo thời gian.</p>
                                 <h4>Gregory Perkins</h4>
-								<h5>Customer</h5>
+								<h5>Khách hàng</h5>
                             </div>
                             <div class="single-testimonial text-center">
                                 <div class="testimonial-img">
                                     <img alt="" src="~static/img/icon-img/testi.png">
                                 </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisici elit, sed do eiusmod tempor incididunt ut labore</p>
+                                <p>Điều quan trọng là phải chăm sóc bệnh nhân, theo dõi diễn biến của bệnh nhân, nhưng điều đó cũng xảy ra theo thời gian.</p>
                                 <h4>Khabuli Teop</h4>
-								<h5>Marketing</h5>
+								<h5>Tiếp thị</h5>
                             </div>
                             <div class="single-testimonial text-center">
                                 <div class="testimonial-img">
                                     <img alt="" src="~static/img/icon-img/testi.png">
                                 </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisici elit, sed do eiusmod tempor incididunt ut labore </p>
+                                <p>Điều quan trọng là phải chăm sóc bệnh nhân, theo dõi diễn biến của bệnh nhân, nhưng điều đó cũng xảy ra theo thời gian. </p>
                                 <h4>Lotan Jopon</h4>
-								<h5>Admin</h5>
+								<h5>Quản trị viên</h5>
                             </div>
                         </div>
                     </div>
@@ -67,7 +66,7 @@
             <div class="container">
                 <div class="product-top-bar section-border mb-50">
                     <div class="section-title-wrap style-two text-center">
-                        <h3 class="section-title">Team Members</h3>
+                        <h3 class="section-title">Thành viên của nhóm</h3>
                     </div>
                 </div>
                 <div class="row">
@@ -75,7 +74,7 @@
                         <div class="team-wrapper mb-30">
                             <div class="team-img">
                                 <a>
-                                    <img src="~static/img/team/team-1.jpg" alt="">
+                                    <img src="~static/img/team/team-1.jpg"  height="450" alt="">
                                 </a>
                                 <div class="team-action">
                                     <a class="action-plus facebook">
@@ -99,7 +98,7 @@
                         <div class="team-wrapper mb-30">
                             <div class="product-img">
                                 <a >
-                                    <img src="~static/img/team/team-2.jpg" alt="">
+                                    <img src="~static/img/team/team-2.jpg"  height="450" alt="">
                                 </a>
                                 <div class="team-action">
                                     <a class="action-plus facebook">
@@ -114,8 +113,8 @@
                                 </div>
                             </div>
                             <div class="team-content text-center">
-                                <h4>Mr.Peter Pan</h4>
-                                <span>Developer </span>
+                              <h4>Ms.Sophia</h4>
+                              <span>Designer </span>
                             </div>
                         </div>
                     </div>
@@ -123,7 +122,7 @@
                         <div class="team-wrapper mb-30">
                             <div class="team-img">
                                 <a>
-                                    <img src="~static/img/team/team-3.jpg" alt="">
+                                    <img src="~static/img/team/team-3.jpg" height="450" alt="">
                                 </a>
                                 <div class="team-action">
                                     <a class="action-plus facebook">
@@ -138,8 +137,8 @@
                                 </div>
                             </div>
                             <div class="team-content text-center">
-                                <h4>Ms.Sophia</h4>
-                                <span>Designer </span>
+                              <h4>Mr.Peter Pan</h4>
+                              <span>Developer </span>
                             </div>
                         </div>
                     </div>
@@ -222,5 +221,5 @@ export default {
 }
 </script>
 <style lang="">
-    
+
 </style>

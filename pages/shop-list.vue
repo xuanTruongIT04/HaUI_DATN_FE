@@ -25,7 +25,7 @@
               </div>
               <div class="product-sorting-wrapper">
                 <div class="product-shorting shorting-style">
-                  <label>View:</label>
+                  <label>Hiển thị:</label>
                   <select v-model="pageSize" @change="changePageSize">
                     <option
                       v-for="(option, index) in pageSizeOptions"
@@ -39,7 +39,7 @@
                   </select>
                 </div>
                 <div class="product-show shorting-style">
-                  <label>Sort by:</label>
+                  <label>Sắp xếp theo:</label>
                   <select v-model="orderBy" @change="changeSortOrder">
                     <option value="">Default</option>
                     <option value="name">Name</option>
@@ -85,8 +85,8 @@
                 <div class="total-pages">
                   <div class="total-pages">
                     <p>
-                      Showing {{ startIndex }} - {{ endIndex }} of
-                      {{ totalResults }} results
+                      Hiển thị {{ startIndex }} - {{ endIndex }} trong
+                      {{ totalResults }} kết quả
                     </p>
                   </div>
                 </div>

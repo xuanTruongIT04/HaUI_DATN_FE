@@ -16,7 +16,7 @@
               <div id="lg1" class="tab-pane active">
                 <div class="login-form-container">
                   <div class="login-register-form">
-                      <h4>Wait a minute, we are checking your email...</h4>
+                      <h4>Đợi một chút, chúng tôi đang kiểm tra email của bạn...</h4>
                   </div>
                 </div>
               </div>
