@@ -48,7 +48,7 @@ export default {
     this.$axios
       .get("auth" + this.$route.fullPath)
       .then((respon) => {
-        this.$toast.success("You have been verifying account success!");
+        this.$toast.success("Bạn đã xác minh tài khoản thành công!");
         this.$router.push("/login-register");
       })
       .catch((e) => {});

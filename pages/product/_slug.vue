@@ -77,7 +77,7 @@
                 <div class="shop-list-cart-wishlist">
                   <a
                     class="icon-cart action-cart"
-                    title="Add To Cart"
+                    title="Thêm vào giỏ hàng"
                     @click="addCart(product?.id)"
                   >
                     <i class="fa fa-shopping-cart"></i>

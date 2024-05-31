@@ -123,7 +123,7 @@
                   <button
                     @click.prevent="addCart(productPreview.id, numberOrder)"
                   >
-                    Add to cart
+                    Thêm vào giỏ hàng
                   </button>
                 </div>
                 <span v-if="statusStock"

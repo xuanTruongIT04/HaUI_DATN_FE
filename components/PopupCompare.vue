@@ -54,7 +54,7 @@
                     />
                   </div>
                   <button @click.prevent="addCart(item.id, numberOrder)">
-                    Add to cart
+                    Thêm vào giỏ hàng
                   </button>
                 </div>
                 <span v-if="statusStock(item.qty_import, item.qty_sold)"
