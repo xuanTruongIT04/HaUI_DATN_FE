@@ -45,7 +45,7 @@
         </a>
         <a
           class="action-cart"
-          title="Add To Cart"
+          title="Thêm vào giỏ hàng"
           @click.prevent="addCart(product.id)"
           v-if="statusStock(product.qty_import, product.qty_sold)"
         >
@@ -80,11 +80,11 @@
         <div class="cart-hover">
           <h4> <a
           class="action-cart"
-          title="Add To Cart"
+          title="Thêm vào giỏ hàng"
           @click.prevent="addCart(product.id)"
           v-if="statusStock(product.qty_import, product.qty_sold)"
         >
-        + Add to cart
+        + Thêm vào giỏ hàng
         </a>
         <a :href="`product/${product.slug}`" v-else>View product details</a>
         </h4>
@@ -118,7 +118,7 @@
         ></a>
         <a
           class="action-cart"
-          title="Add To Cart"
+          title="Thêm vào giỏ hàng"
           @click.prevent="addCart(product.id)"
           v-if="statusStock(product.qty_import, product.qty_sold)"
           ><i class="ion-ios-shuffle-strong"></i

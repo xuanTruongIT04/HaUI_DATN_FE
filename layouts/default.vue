@@ -3,6 +3,12 @@
     <Navbar />
     <Nuxt />
     <Footer />
+    <df-messenger
+      intent="WELCOME"
+      chat-title="TMCompany_AI_ChatBox"
+      agent-id="cf1edb0d-0e4b-4c95-a7e2-ff6cef09024a"
+      language-code="en"
+    ></df-messenger>
   </div>
 </template>
 
@@ -37,6 +43,7 @@ export default {
         { src: "/js/owl.carousel.min.js" },
         { src: "/js/plugins.js" },
         { src: "/js/main.js" },
+        { src: "https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1" },
       ],
     };
   },

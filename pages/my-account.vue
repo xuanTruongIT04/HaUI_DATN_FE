@@ -112,7 +112,8 @@
                       <div class="billing-back-btn">
                         <div class="billing-back">
                           <NuxtLink to="/cart-page"
-                            ><i class="fa fa-shopping-cart mr-2"></i> Quay lại giỏ hàng</NuxtLink
+                            ><i class="fa fa-shopping-cart mr-2"></i> Quay lại
+                            giỏ hàng</NuxtLink
                           >
                         </div>
                         <div class="billing-btn">
@@ -270,17 +271,23 @@ export default {
     async update_infor() {
       try {
         this.isLoading = true;
-        this.$axios.post("/update-infor", {
-          first_name: this.first_name,
-          last_name: this.last_name,
-          phone: this.phone,
-          fax: this.fax,
-        });
+        this.$axios
+          .post("/update-infor", {
+            first_name: this.first_name,
+            last_name: this.last_name,
+            phone: this.phone,
+            fax: this.fax,
+          })
+          .then((response) => {
+            this.$toast.success(
+              "Bạn đã cập nhật thành công thông tin cá nhân của mình!"
+            );
+          })
+          .catch((e) => {
+            this.errors = e.response.data.errors;
+          });
         this.errors = [];
         this.isLoading = false;
-        this.$toast.success(
-          "You have successfully updated your personal information!"
-        );
       } catch (error) {
         if (
           error.response &&
@@ -303,12 +310,13 @@ export default {
           new_password_confirmation: this.new_password_confirmation,
         })
         .then((res) => {
-          if (res.data.success) {
+          if (res.data.data) {
             this.refreshPage();
             this.isLoading = false;
-            this.$toast.success("You have successfully updated your password!");
-          } else if (res.data.status === 401) {
+            this.$toast.success("Bạn đã cập nhật mật khẩu thành công!");
+          } else {
             this.refreshErrors();
+            this.$toast.error("Bạn đã cập nhật mật khẩu không thành công!");
             this.errors.password = [res.data.title];
             this.isLoading = false;
           }

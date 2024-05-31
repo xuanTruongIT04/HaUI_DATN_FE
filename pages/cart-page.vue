@@ -1,7 +1,7 @@
 <template lang="">
   <div class="cart-main-area ptb-100">
     <div class="container">
-      <h3 class="page-title">Your cart items</h3>
+      <h3 class="page-title">Giỏ hàng của bạn</h3>
       <div class="row" v-if="detailCarts.length > 0">
         <div class="col-lg-12 col-md-12 col-sm-12 col-12">
           <form action="#">
@@ -9,19 +9,20 @@
               <table>
                 <thead>
                   <tr>
-                    <th>Product Thumb</th>
-                    <th>Product Name</th>
-                    <th>Until Price</th>
-                    <th>Qty</th>
-                    <th>Subtotal</th>
-                    <th>DELETE</th>
+                    <th>Hình ảnh sản phẩm</th>
+                    <th>Tên sản phẩm</th>
+                    <th>Giá</th>
+                    <th>Số lượng</th>
+                    <th>Tổng phụ</th>
+                    <th>Xoá</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr v-for="item in detailCarts" :key="item.id">
                     <td class="product-thumbnail">
                       <a :href="`product/${item.product.slug}`">
-                        <img :src="`${item.product?.images[0]?.link}`" alt=""/> </a>
+                        <img :src="`${item.product?.images[0]?.link}`" alt="" />
+                      </a>
                     </td>
                     <td class="product-name">
                       <a :href="`product/${item.product.slug}`">{{
@@ -67,9 +68,9 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td>Total quantity</td>
-                    <td>Total price</td>
-                    <td>Delete All</td>
+                    <td>Tổng số lượng</td>
+                    <td>Tổng giá</td>
+                    <td>Xoá tất cả</td>
                   </tr>
                   <tr>
                     <td></td>
@@ -79,7 +80,7 @@
                     <td>${{ cart?.total_price }}</td>
                     <td class="cart-shiping-update cart-clear">
                       <button class="clear-all" @click.prevent="deleteAll">
-                        Delete
+                        Xoá
                       </button>
                     </td>
                   </tr>
@@ -90,15 +91,17 @@
               <div class="col-lg-12">
                 <div class="cart-shiping-update-wrapper">
                   <div class="cart-shiping-update cart-clear">
-                    <NuxtLink to="/shop-list">Continue Shopping</NuxtLink>
+                    <NuxtLink to="/shop-list">Tiếp tục mua sắm</NuxtLink>
                   </div>
                   <div class="cart-clear">
-                    <button @click.prevent="updateCart">Update Cart</button>
+                    <button @click.prevent="updateCart">
+                      Cập nhật giỏ hàng
+                    </button>
                     <a href="#" v-if="!isOrdered" @click.prevent="createOrder"
-                      >Create Order</a
+                      >Tạo đơn hàng</a
                     >
                     <a href="#" v-else @click.prevent="titleOrdered"
-                      >Create Order</a
+                      >Tạo đơn hàng</a
                     >
                   </div>
                 </div>
@@ -122,7 +125,7 @@
             >
             <div class="cart-shiping-update-wrapper">
               <div class="cart-shiping-update cart-return">
-                <NuxtLink to="/shop-list">Continue Shopping</NuxtLink>
+                <NuxtLink to="/shop-list">Tiếp tục mua sắm</NuxtLink>
               </div>
             </div>
           </h3>
@@ -133,23 +136,23 @@
           <div class="discount-code-wrapper">
             <div class="title-wrap">
               <h4 class="cart-bottom-title section-bg-gray">
-                Order information
+                Thông tin đơn hàng
               </h4>
             </div>
             <div class="discount-code">
-              <p>1. Address delivery</p>
+              <p>1. Địa chỉ giao hàng</p>
               <input
                 type="text"
                 name="name"
                 v-model="addressDelivery"
                 ref="addressInput"
-                placeholder="Enter your address delvery."
+                placeholder="Nhập địa chỉ nhận hàng của bạn."
               />
             </div>
 
             <div class="row justify-content-between">
               <div class="discount-code col-5">
-                <p>2. Order code</p>
+                <p>2. Mã sản phẩm</p>
                 <input
                   type="text"
                   class="bg-notread"
@@ -158,34 +161,37 @@
                 />
               </div>
               <div class="discount-code col-6">
-                <p>3. Date order</p>
+                <p>3. Ngày đặt</p>
                 <span>{{ orderDate }}</span>
               </div>
             </div>
 
             <div class="row justify-content-between">
               <div class="discount-code col-5">
-                <p>3. Payment method</p>
+                <p>4. Phương thức thanh toán</p>
                 <div class="tax-select">
                   <select class="email s-email s-wid" v-model="paymentMethod">
-                    <option value="">---Select method---</option>
-                    <option value="0">Cash</option>
-                    <option value="1">QR</option>
+                    <option value="">---Chọn phương thức---</option>
+                    <option value="0">Tiền mặt</option>
+                    <option value="1">Chuyển khoản ngân hàng</option>
                   </select>
                 </div>
               </div>
               <div class="discount-code col-6">
-                <p>4. Coupon</p>
+                <p>5. Phiếu giảm giá</p>
                 <input
                   type="text"
                   v-model="couponCode"
-                  placeholder="Enter your coupon code"
+                  placeholder="Nhập mã phiếu giảm giá"
                   name="name"
                 />
-                <p class="mt-2" v-if="!couponCode"><i>Get coupon from coupon list</i>: <NuxtLink to="/coupon" class="font-weight-bold"> HERE</NuxtLink></p>
-                <button class="cart-btn-2" @click="checkCoupon">
-                  Apply Coupon
-                </button>
+                <p class="mt-2" v-if="!couponCode">
+                  <i>Lấy phiếu giảm giá ở </i>:
+                  <NuxtLink to="/coupon" class="font-weight-bold">
+                    ĐÂY</NuxtLink
+                  >
+                </p>
+                <button class="cart-btn-2" @click="checkCoupon">Áp dụng</button>
               </div>
             </div>
           </div>
@@ -193,24 +199,26 @@
         <div class="col-lg-4">
           <div class="grand-totall">
             <div class="title-wrap">
-              <h4 class="cart-bottom-title section-bg-gary-cart">
-                Order Total
-              </h4>
+              <h4 class="cart-bottom-title section-bg-gary-cart">Tổng đơn</h4>
             </div>
             <h5>
-              Total prices <span>${{ cart?.total_price }}</span>
+              Tổng giá <span>${{ cart?.total_price }}</span>
             </h5>
             <h5>
-              Promotion from coupon <span>- ${{ pricePromotion }}</span>
+              Khuyến mãi từ phiếu giảm giá <span>- ${{ pricePromotion }}</span>
             </h5>
             <h4 class="grand-totall-title">
-              Grand Total <span>${{ grandTotal }}</span>
+              Tổng cộng <span>${{ grandTotal }}</span>
             </h4>
-            <a href="#" @click.prevent="checkOrder">Submit</a>
+            <a href="#" @click.prevent="checkOrder">XÁC NHẬN</a>
           </div>
         </div>
       </div>
     </div>
+    <!-- <BankingModal
+      :isModalBankingOpen="isModalBankingOpen"
+      :amount="cart?.total_price"
+    /> -->
     <ConfirmationModal
       :isModalOpen="isModalOpen"
       :message="confirmationMessage"
@@ -218,21 +226,33 @@
       @cancel="closeModal"
     />
     <!-- Loader -->
-    <Loader :isLoading="isLoading"/>
+    <Loader :isLoading="isLoading" />
     <!-- End Loader -->
   </div>
 </template>
+
 <script>
+import { CheckoutMethods } from "~/helpers/Constant";
+import {
+  domainCheckoutOnline,
+  apiKey,
+  clientId,
+  checksumKey,
+} from "~/config/envConfig";
+import { hashSignature } from "~/helpers/Encryption";
+
 export default {
   layout: "page-detail",
+  watchQuery: ["code", "id", "cancel", "status", "orderCode"],
   data() {
     return {
       isOrdered: false,
       cart: [],
       detailCarts: [],
       addressDelivery: "",
-      orderCode: "",
       orderDate: "",
+      orderCode: "",
+      subOrderCode: "",
       paymentMethod: "",
       couponCode: "",
       percentPromotion: 0,
@@ -241,8 +261,10 @@ export default {
       isLoading: true,
     };
   },
-  async asyncData({ $axios }) {
+  async asyncData({ $axios, query }) {
     try {
+      let infoBanking = query ?? {};
+
       const response = await $axios.get("/cart/");
 
       const cart = response?.data?.data?.cart || [];
@@ -265,8 +287,10 @@ export default {
         isOrdered: status,
         addressDelivery: orderInfo.address_delivery || "",
         orderCode: orderInfo.code || "",
+        subOrderCode: orderInfo.id || "",
         orderDate: orderInfo.order_date || "",
         paymentMethod: orderInfo.payment_method || "",
+        infoBanking: infoBanking,
       };
     } catch (error) {
       console.error(error);
@@ -276,6 +300,20 @@ export default {
         isOrdered: false,
       };
     }
+  },
+
+  async beforeCreate() {
+    this.isLoading = true;
+  },
+
+  async created() {
+    this.$localStorage.removeItem("linkPayment");
+
+    let query = this.$route.query;
+    if (query.cancel && query.status) {
+      this.submitOrderAfterCheckout(query);
+    }
+    this.isLoading = false;
   },
 
   mounted() {
@@ -297,6 +335,10 @@ export default {
         return (this.cart?.total_price - this.pricePromotion).toFixed(2);
       }
       return this.cart?.total_price;
+    },
+
+    timeNowToSeconds() {
+      return Math.floor(Date.now() / 1000);
     },
   },
 
@@ -394,27 +436,43 @@ export default {
     async updateCart() {
       try {
         const dataUpdate = {};
+        let isQtyValid = true;
         this.detailCarts.forEach((item) => {
           dataUpdate[item.id] = parseInt(item.quantity);
+          console.log(item);
+          if (
+            item.quantity < 0 ||
+            item.quantity + item.product.qty_sold > item.product.qty_import
+          ) {
+            isQtyValid = false;
+            this.$toast.error(
+              "Cập nhật giỏ hàng thất bại. Số lượng sản phẩm " +
+                item.product.name +
+                " không phù hợp (phải lớn hơn 0 và nhỏ hơn số lượng còn)!"
+            );
+          }
         });
         const payload = JSON.stringify(dataUpdate);
         this.isLoading = true;
-        const resUpdate = await this.$axios.post(`/cart/update/`, payload, {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-        this.isLoading = false;
-        let status = resUpdate?.data?.data?.update;
-        if (status) {
-          this.$toast.success("Cập nhật giỏ hàng thành công!");
-          this.$bus.$emit("addProductToCart");
-          await this.reloadDetailCarts();
-        } else {
-          this.$toast.error(
-            "Cập nhật giỏ hàng thất bại, hãy kiểm tra và thử lại sau giây lát!"
-          );
+        if (isQtyValid) {
+          const resUpdate = await this.$axios.post(`/cart/update/`, payload, {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          });
+          this.isLoading = false;
+          let status = resUpdate?.data?.data?.update;
+          if (status) {
+            this.$toast.success("Cập nhật giỏ hàng thành công!");
+            this.$bus.$emit("addProductToCart");
+            await this.reloadDetailCarts();
+          } else {
+            this.$toast.error(
+              "Cập nhật giỏ hàng thất bại, hãy kiểm tra và thử lại sau giây lát!"
+            );
+          }
         }
+        this.isLoading = false;
       } catch (error) {
         this.isLoading = false;
         console.error(error);
@@ -466,7 +524,8 @@ export default {
       try {
         this.isLoading = true;
         const resCheck = await this.$axios.get(`/check-infor/`);
-        if (resCheck?.data?.data?.info) {
+        let info = resCheck?.data?.data?.info;
+        if (info) {
           const resCreate = await this.$axios.post(`/order/create/`);
           this.isLoading = false;
           let status = resCreate?.data?.data?.create;
@@ -510,58 +569,102 @@ export default {
     },
 
     checkOrder() {
-      if (!this.addressDelivery) {
-        this.$refs.addressInput.focus();
-        this.$toast.error(
-          "Bạn chưa nhập địa chỉ giao hàng, vui lòng thêm và thử lại!"
-        );
-        return;
-      }
+      const linkPayment = this.$localStorage.getItem("linkPayment");
+      if (linkPayment !== null) {
+        this.redirectExternalSite(linkPayment);
+      } else {
+        if (!this.addressDelivery) {
+          this.$refs.addressInput.focus();
+          this.$toast.error(
+            "Bạn chưa nhập địa chỉ giao hàng, vui lòng thêm và thử lại!"
+          );
+          return;
+        }
 
-      if (!this.paymentMethod) {
-        this.$toast.error(
-          "Bạn chưa chọn phương thức thanh toán, vui lòng thêm và thử lại!"
-        );
-        return;
-      }
+        if (!this.paymentMethod) {
+          this.$toast.error(
+            "Bạn chưa chọn phương thức thanh toán, vui lòng thêm và thử lại!"
+          );
+          return;
+        }
 
-      if (!this.pricePromotion) {
-        this.couponCode = "";
+        if (!this.pricePromotion) {
+          this.couponCode = "";
+        }
+        this.openConfirmationModal();
       }
-
-      this.openConfirmationModal();
     },
 
     async submitOrder() {
       try {
-        const now = new Date();
-        const dataSubmit = {
-          address_delivery: this.addressDelivery,
-          payment_method: this.paymentMethod,
-          coupon: this.couponCode,
-          total_mount: this.grandTotal,
-          order_date: now.toISOString().slice(0, 19).replace("T", " "),
-        };
-        const payload = JSON.stringify(dataSubmit);
-        this.isLoading = true;
-        const resSubmit = await this.$axios.post(
-          `/order/submit-order/`,
-          payload,
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
+        // Process banking payment method
+        if (this.paymentMethod == CheckoutMethods.BANKING_INTERNET) {
+          // Get info user
+          this.isLoading = true;
+          const getInformationUser = await this.$axios.get(`/check-infor/`);
+          let infoUser = getInformationUser?.data?.data?.info;
+
+          const orderCodeNumber = this.parseNumber(
+            this.subOrderCode,
+            this.orderCode
+          );
+          // const amout = parseInt(this.grandTotal);
+          const amount = 2000;
+
+          let data = {
+            orderCode: orderCodeNumber,
+            amount: amount,
+            description: "THANH TOAN DON HANG LOTUS",
+            buyerName: infoUser.first_name,
+            buyerEmail: infoUser.email,
+            buyerPhone: infoUser.phone,
+            buyerAddress: this.addressDelivery,
+            items: this.detailCarts.product,
+            cancelUrl: "http://localhost:3000/cart-page",
+            returnUrl: "http://localhost:3000/cart-page",
+            expiredAt: this.timeNowToSeconds + 60 * 60 * 60, //  1 hour,
+          };
+
+          // `amount=${data.amount}&cancelUrl=${data.cancelUrl}&description=${data.description}&orderCode=${data.orderCode}&returnUrl=${data.returnUrl}`
+          let dataHash = {
+            amount: data.amount,
+            cancelUrl: data.cancelUrl,
+            description: data.description,
+            orderCode: data.orderCode,
+            returnUrl: data.returnUrl,
+          };
+
+          const signature = hashSignature(dataHash, checksumKey);
+
+          const payload = {
+            ...data,
+            signature,
+          };
+
+          const resCheckout = await this.$axios.post(
+            `${domainCheckoutOnline}/payment-requests`,
+            payload,
+            {
+              headers: {
+                "Content-Type": "application/json",
+                "x-api-key": apiKey,
+                "x-client-id": clientId,
+              },
+            }
+          );
+
+          this.isLoading = false;
+          let dataCheckout = resCheckout?.data?.data;
+          if (dataCheckout) {
+            this.$localStorage.setItem("linkPayment", dataCheckout.checkoutUrl);
+            this.$localStorage.setItem("addressDelivery", this.addressDelivery);
+            this.$localStorage.setItem("paymentMethod", this.paymentMethod);
+
+            this.redirectExternalSite(dataCheckout.checkoutUrl);
           }
-        );
-        this.isLoading = false;
-        let data = resSubmit?.data?.data;
-        this.closeModal();
-        this.$store.dispatch("setBillData", data);
-        this.$router.push("notify-order");
-        // Store info order with vuex
-        this.$toast.success(
-          "Thêm thông tin giao hàng thành công, hãy chuyển đến bước thanh toán!"
-        );
+        } else {
+          await this.submitOrderAfterCheckout();
+        }
       } catch (error) {
         this.isLoading = false;
         console.error(error);
@@ -569,6 +672,59 @@ export default {
           "Thêm thông tin giao hàng thất bại, hãy kiểm tra và thử lại sau giây lát!"
         );
       }
+    },
+
+    async submitOrderAfterCheckout(dataQuery = "") {
+      this.isLoading = true;
+      this.paymentMethod = CheckoutMethods.CASH;
+
+      if (dataQuery) {
+        if (!dataQuery?.cancel) {
+          this.paymentMethod = CheckoutMethods.BANKING_INTERNET;
+        }
+
+        this.addressDelivery = this.regDoubleQuote(
+          this.$localStorage.getItem("addressDelivery")
+        );
+        this.paymentMethod = this.regDoubleQuote(
+          this.$localStorage.getItem("paymentMethod")
+        );
+      }
+
+      const now = new Date();
+      const dataSubmit = {
+        address_delivery: this.addressDelivery,
+        payment_method: this.paymentMethod,
+        coupon: this.couponCode,
+        total_mount: this.grandTotal,
+        order_date: now.toISOString().slice(0, 19).replace("T", " "),
+      };
+
+      const payload = JSON.stringify(dataSubmit);
+
+      const resSubmit = await this.$axios.post(
+        `/order/submit-order/`,
+        payload,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      this.isLoading = false;
+      let data = resSubmit?.data?.data;
+      this.closeModal();
+      this.$store.dispatch("setBillData", data);
+      this.$router.push("notify-order");
+      // Store info order with vuex
+      this.$toast.success(
+        "Thêm thông tin giao hàng thành công, hãy chuyển đến bước thanh toán!"
+      );
+
+      // Delete local storage
+      this.$localStorage.removeItem("linkPayment");
+      this.$localStorage.removeItem("addressDelivery");
+      this.$localStorage.removeItem("paymentMethod");
     },
 
     async getInformationUser() {
@@ -579,6 +735,7 @@ export default {
         const orderInfo = res?.data?.data;
         this.addressDelivery = orderInfo.address_delivery || "";
         this.orderCode = orderInfo.code || "";
+        this.subOrderCode = orderInfo.id || "";
         this.orderDate = orderInfo.order_date || "";
         this.paymentMethod = orderInfo.payment_method || "";
       } catch (error) {
@@ -595,6 +752,34 @@ export default {
 
     closeModal() {
       this.isModalOpen = false;
+    },
+
+    parseNumber(subOrderCode, orderCode) {
+      // Sử dụng biểu thức chính quy để tìm các số trong chuỗi
+      const regex = /\d+/g;
+      let match = orderCode.match(regex);
+
+      let numbers = [subOrderCode];
+      numbers.push(...match);
+
+      // Chuyển đổi mảng các số thành một chuỗi
+      let combined = numbers ? numbers.join("") : "";
+
+      return parseInt(combined.slice(0, 10));
+    },
+
+    regDoubleQuote(url) {
+      if (url && url.includes('"')) {
+        url = url.replace(/"/g, "");
+      }
+
+      return url;
+    },
+
+    redirectExternalSite(url) {
+      let urlStd = this.regDoubleQuote(url);
+
+      window.location.href = urlStd;
     },
   },
 };

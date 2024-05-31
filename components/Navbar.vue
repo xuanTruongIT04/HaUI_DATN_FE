@@ -38,6 +38,10 @@
                       <ul class="submenu">
                         <li>
                           <a href="/my-account" @click.prevent="conditionRedirect('/my-account')">Tài khoản</a>
+                        </li>
+                        <li>
+                          <a href="/manage-order" @click.prevent="conditionRedirect('/manage-order')">Quản lý đơn hàng</a>
+                        </li>
                         <li v-if="!isLogin">
                           <NuxtLink to="/login-register">Đăng nhập | Đăng ký</NuxtLink>
                         </li>

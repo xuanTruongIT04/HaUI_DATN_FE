@@ -262,7 +262,7 @@ export default {
           //   "Congratulations, you have successfully registered your account, please return to the login page!"
           // );
           this.$toast.success(
-            "Congratulations on your successful account registration, now it's time to verify your account (Check your gmail!)"
+            "Chúc mừng bạn đã đăng ký tài khoản thành công, giờ là lúc xác minh tài khoản của bạn (Kiểm tra gmail của bạn!)"
           );
           this.$axios.post("auth/verification", {
             email: this.email,

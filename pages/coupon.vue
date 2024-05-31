@@ -27,7 +27,7 @@
                   </div>
               </div>
               <div class="cart-shiping-update cart-return mt-1 mb-3  d-flex justify-content-center">
-                  <NuxtLink to="/cart-page">Return shopping cart</NuxtLink>
+                  <NuxtLink to="/cart-page">Trở về giỏ hàng</NuxtLink>
               </div>
 
               <div class="pagination-total-pages">
@@ -52,7 +52,7 @@
               </h3>
               <div class="cart-shiping-update-wrapper">
                   <div class="cart-shiping-update cart-return mt-1 mb-3  d-flex justify-content-center">
-                    <NuxtLink to="/cart-page">Return shopping cart</NuxtLink>
+                    <NuxtLink to="/cart-page">Trở về giỏ hàng</NuxtLink>
                   </div>
               </div>
           </div>

@@ -97,7 +97,7 @@ export default {
             this.errors = [];
             this.isLoading = false;
             this.$toast.success(
-              "Please wait 3 seconds to be redirected to the login page!"
+              "Vui lòng đợi 3 giây để được chuyển đến trang đăng nhập!"
             );
             setTimeout(() => {
               this.$router.push("/login-register");
