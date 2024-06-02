@@ -5,7 +5,7 @@
     <Footer />
     <df-messenger
       intent="WELCOME"
-      chat-title="TMCompany_AI_ChatBox"
+      chat-title="Trợ lý ảo Lotus Thé"
       agent-id="cf1edb0d-0e4b-4c95-a7e2-ff6cef09024a"
       language-code="en"
     ></df-messenger>

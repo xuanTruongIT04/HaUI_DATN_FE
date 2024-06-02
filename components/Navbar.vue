@@ -85,7 +85,7 @@
                             >0{{ item.quantity }}</span>
                           <span v-else>{{ item.quantity }}</span>
                         </h6>
-                        <span>Price: ${{ item.subtotal }}</span>
+                        <span>Price: {{ convertUSDToVND(item.subtotal) }}</span>
                       </div>
                       <div class="shopping-cart-delete">
                         <a @click.prevent="deleteDC(item.id)"><i class="ion ion-close"></i></a>
@@ -106,7 +106,7 @@
                       <div>
                         Tổng giá:
                         <span class="shop-total">
-                          ${{cart?.total_price}}</span>
+                          {{convertUSDToVND(cart?.total_price)}}</span>
                       </div>
                     </h4>
                   </div>

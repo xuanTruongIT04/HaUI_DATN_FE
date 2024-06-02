@@ -28,7 +28,7 @@
           <div class="col-lg-6 col-md-12">
             <div class="product-details-content">
               <h4>{{ product?.name ? product?.name : "" }}</h4>
-              <span>${{ priceNew }}</span>
+              <span>{{ convertUSDToVND(priceNew) }}</span>
               <div class="in-stock">
                 <p>
                   Tình trạng: <span>{{ statusStock }}</span> <br>
@@ -213,7 +213,9 @@
 </template>
 <script>
 import { StatusFavotes } from "~/helpers/Constant";
+import globalMixin from "~/mixins/global";
 export default {
+  mixins: [globalMixin],
   layout: "page-detail",
   async asyncData({ $axios, params }) {
     try {
