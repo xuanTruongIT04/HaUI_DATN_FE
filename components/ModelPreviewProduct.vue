@@ -73,12 +73,12 @@
               <div class="modal-pro-content">
                 <h3>{{ productPreview.name }}</h3>
                 <div class="product-price-wrapper">
-                  <span style="margin-right: 10px">${{ priceNew }}</span>
+                  <span style="margin-right: 10px">{{ convertUSDToVND(priceNew) }}</span>
                   <span
                     class="product-price-old"
                     v-if="productPreview.price !== priceNew"
                   >
-                    ${{ productPreview.price }}
+                    {{ convertUSDToVND(productPreview.price) }}
                   </span>
                 </div>
                 <p v-html="productPreview.description"></p>
@@ -140,7 +140,9 @@
   </div>
 </template>
 <script>
+import globalMixin from "~/mixins/global";
 export default {
+  mixins: [globalMixin],
   props: {
     productPreview: {
       type: Object,

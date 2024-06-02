@@ -78,22 +78,23 @@
           </h4>
         </div>
         <div class="cart-hover">
-          <h4> <a
-          class="action-cart"
-          title="Thêm vào giỏ hàng"
-          @click.prevent="addCart(product.id)"
-          v-if="statusStock(product.qty_import, product.qty_sold)"
-        >
-        + Thêm vào giỏ hàng
-        </a>
-        <a :href="`product/${product.slug}`" v-else>View product details</a>
-        </h4>
+          <h4>
+            <a
+              class="action-cart"
+              title="Thêm vào giỏ hàng"
+              @click.prevent="addCart(product.id)"
+              v-if="statusStock(product.qty_import, product.qty_sold)"
+            >
+              + Thêm vào giỏ hàng
+            </a>
+            <a :href="`product/${product.slug}`" v-else>View product details</a>
+          </h4>
         </div>
       </div>
       <div class="product-price-wrapper">
-        <span style="margin-right: 10px">${{ priceNew }}</span>
+        <span style="margin-right: 10px">{{ convertUSDToVND(priceNew) }}</span>
         <span class="product-price-old" v-if="product.price !== priceNew">
-          ${{ product.price.toFixed(2) }}
+          {{ convertUSDToVND(product.price.toFixed(2)) }}
         </span>
       </div>
     </div>
@@ -102,9 +103,9 @@
         <a :href="`product/${product.slug}`">{{ product.name }}</a>
       </h4>
       <div class="product-price-wrapper">
-        <span style="margin-right: 10px">${{ priceNew }}</span>
+        <span style="margin-right: 10px">{{ convertUSDToVND(priceNew) }}</span>
         <span class="product-price-old" v-if="product.price !== priceNew">
-          ${{ product.price }}
+          {{ convertUSDToVND(product.price) }}
         </span>
       </div>
       <p v-html="product.description"></p>
@@ -145,8 +146,9 @@
 <script>
 import character from "~/mixins/character";
 import { StatusFavotes } from "~/helpers/Constant";
+import globalMixin from "~/mixins/global";
 export default {
-  mixins: [character],
+  mixins: [character, globalMixin],
   props: {
     product: {
       type: Object,

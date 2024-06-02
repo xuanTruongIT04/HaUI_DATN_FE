@@ -29,12 +29,12 @@
               <div class="product-info mt-2">
                 <h3>{{ item?.name }}</h3>
                 <div class="product-price-wrapper">
-                  <span class="product-price">${{ item?.price }}</span>
+                  <span class="product-price">{{ convertUSDToVND(item?.price) }}</span>
                   <span
                     class="product-price-old"
                     v-if="item?.discount !== null"
                   >
-                    ${{ (item?.price * (100 - item?.discount)) / 100 }}
+                    {{ convertUSDToVND((item?.price * (100 - item?.discount)) / 100) }}
                   </span>
                 </div>
                 <p v-html="briefName(item.description, 300)"></p>

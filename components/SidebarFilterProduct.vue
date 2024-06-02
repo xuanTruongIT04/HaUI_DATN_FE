@@ -1,6 +1,9 @@
 <template lang="">
   <div class="col-lg-3">
-    <div class="shop-sidebar-wrapper gray-bg-7 shop-sidebar-mrg" v-if="!isLoadingSpinner">
+    <div
+      class="shop-sidebar-wrapper gray-bg-7 shop-sidebar-mrg"
+      v-if="!isLoadingSpinner"
+    >
       <div class="shop-widget">
         <h4 class="shop-sidebar-title">Lọc sản phẩm</h4>
         <div class="shop-catigory">
@@ -17,7 +20,7 @@
       <div class="shop-price-filter mt-40 shop-sidebar-border pt-35">
         <h4 class="shop-sidebar-title">Khoảng giá</h4>
         <div class="price_filter mt-25">
-          Từ $0 đến ${{ maxPrice }}
+          Từ {{ convertUSDToVND(0) }} đến {{ convertUSDToVND(maxPrice) }}
           <vue-slider
             v-if="isDataLoaded"
             :min="0"
@@ -74,7 +77,9 @@
         <div class="compare-product">
           <p>Bạn có {{ qtyProductCompare }} sản phẩm để so sánh.</p>
           <div class="compare-product-btn">
-            <span class="clear-all mt-2 d-inline-block" @click="clearAll()">Xoá tất cả</span>
+            <span class="clear-all mt-2 d-inline-block" @click="clearAll()"
+              >Xoá tất cả</span
+            >
             <a
               v-if="statusCompare && qtyProductCompare === 2"
               @click.prevent="openPopup()"
@@ -110,7 +115,7 @@
               <span>{{ tag.name }}</span>
             </li>
           </ul>
-            <span @click="clearTag" class="clear-tag">Xoá</span>
+          <span @click="clearTag" class="clear-tag">Xoá</span>
         </div>
       </div>
     </div>
@@ -122,14 +127,16 @@
 
 <script>
 import Popup from "~/components/PopupCompare.vue";
+import globalMixin from "~/mixins/global";
 export default {
+  mixins: [globalMixin],
   components: {
     VueSlider: process.client
       ? () =>
-        Promise.all([
-          import("vue-slider-component"),
-          import("vue-slider-component/theme/default.css"),
-        ]).then(([module]) => module.default)
+          Promise.all([
+            import("vue-slider-component"),
+            import("vue-slider-component/theme/default.css"),
+          ]).then(([module]) => module.default)
       : null,
     Popup,
   },
@@ -161,8 +168,10 @@ export default {
     handleSlideChange(value) {
       const minValue = value[0];
       const maxValue = value[1];
+
       const amountprice = document.getElementById("amount");
-      amountprice.value = "$" + minValue + " - $" + maxValue;
+      amountprice.value =
+        this.convertUSDToVND(minValue) + " - " + this.convertUSDToVND(maxValue);
       // Send emit up
       const priceSatisfied = [minValue, maxValue];
       this.$emit("priceSatisfied", priceSatisfied);

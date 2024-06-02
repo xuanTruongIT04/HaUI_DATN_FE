@@ -30,7 +30,9 @@
                       }}</a>
                     </td>
                     <td class="product-price-cart">
-                      <span class="amount">${{ item.price_sale }}</span>
+                      <span class="amount">{{
+                        convertUSDToVND(item.price_sale)
+                      }}</span>
                     </td>
                     <td class="product-quantity">
                       <div class="pro-dec-cart">
@@ -55,7 +57,9 @@
                         />
                       </div>
                     </td>
-                    <td class="product-subtotal">${{ item.subtotal }}</td>
+                    <td class="product-subtotal">
+                      {{ convertUSDToVND(item.subtotal) }}
+                    </td>
                     <td class="product-delete">
                       <a class="delete-one-product" @click="deleteDC(item.id)"
                         ><i class="ion ion-close"></i
@@ -77,7 +81,7 @@
                     <td></td>
                     <td></td>
                     <td>{{ cart?.total_item }} products</td>
-                    <td>${{ cart?.total_price }}</td>
+                    <td>{{ convertUSDToVND(cart?.total_price) }}</td>
                     <td class="cart-shiping-update cart-clear">
                       <button class="clear-all" @click.prevent="deleteAll">
                         Xoá
@@ -202,13 +206,14 @@
               <h4 class="cart-bottom-title section-bg-gary-cart">Tổng đơn</h4>
             </div>
             <h5>
-              Tổng giá <span>${{ cart?.total_price }}</span>
+              Tổng giá <span>{{ convertUSDToVND(cart?.total_price) }}</span>
             </h5>
             <h5>
-              Khuyến mãi từ phiếu giảm giá <span>- ${{ pricePromotion }}</span>
+              Khuyến mãi từ phiếu giảm giá
+              <span>- {{ convertUSDToVND(pricePromotion) }}</span>
             </h5>
             <h4 class="grand-totall-title">
-              Tổng cộng <span>${{ grandTotal }}</span>
+              Tổng cộng <span>{{ convertUSDToVND(grandTotal) }}</span>
             </h4>
             <a href="#" @click.prevent="checkOrder">XÁC NHẬN</a>
           </div>
@@ -240,10 +245,12 @@ import {
   checksumKey,
 } from "~/config/envConfig";
 import { hashSignature } from "~/helpers/Encryption";
+import globalMixin from "~/mixins/global";
 
 export default {
   layout: "page-detail",
   watchQuery: ["code", "id", "cancel", "status", "orderCode"],
+  mixins: [globalMixin],
   data() {
     return {
       isOrdered: false,

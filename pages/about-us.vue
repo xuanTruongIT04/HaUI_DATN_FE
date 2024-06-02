@@ -7,12 +7,12 @@
           <div class="col-lg-6 col-md-12 d-flex align-items-center">
             <div class="overview-content-2">
               <h4>Chào mừng bạn đến</h4>
-              <h2>Cửa hàng Lotus Thé của chúng tôi!</h2>
+              <h2>Lotus Thé thuộc công ty TMShop chúng tôi!</h2>
               <p class="peragraph-blog">
-                Lotus Thé Shop là một mẫu HTML cao cấp được thiết kế và phát
-                triển ngay từ đầu với mục đích duy nhất là giúp bạn tạo ra một
-                trang web đáng kinh ngạc, đẹp và thân thiện với người dùng, giúp
-                tăng doanh số bán sản phẩm của bạn.
+                Lotus Thé là một mẫu HTML cao cấp được thiết kế và phát triển
+                ngay từ đầu với mục đích duy nhất là giúp bạn tạo ra một trang
+                web đáng kinh ngạc, đẹp và thân thiện với người dùng, giúp tăng
+                doanh số bán sản phẩm của bạn.
               </p>
               <p>
                 Gói thiết kế chủ đề cung cấp bộ chủ đề Magento hoàn chỉnh cho

@@ -27,7 +27,9 @@
                       <a :href="`product/${item.slug}`">{{ item.name }}</a>
                     </td>
                     <td class="product-price-cart">
-                      <span class="amount">${{ item.discountedPrice }}</span>
+                      <span class="amount">{{
+                        convertUSDToVND(item.discountedPrice)
+                      }}</span>
                     </td>
                     <td class="product-quantity">
                       <div class="pro-dec-cart">
@@ -43,7 +45,9 @@
                         />
                       </div>
                     </td>
-                    <td class="product-subtotal">${{ item.subtotal }}</td>
+                    <td class="product-subtotal">
+                      {{ convertUSDToVND(item.subtotal) }}
+                    </td>
                   </tr>
                 </tbody>
                 <tfoot>
@@ -59,7 +63,7 @@
                     <td></td>
                     <td></td>
                     <td>{{ totalQtyOrder }} products</td>
-                    <td>${{ totalPriceOrder }}</td>
+                    <td>{{ convertUSDToVND(totalPriceOrder) }}</td>
                   </tr>
                 </tfoot>
               </table>
@@ -100,7 +104,8 @@
             Đã thêm vào giỏ hàng thành công, hãy đến giỏ hàng để tiếp tục đến
             với thủ tục thanh toán và thông tin nhận hàng
           </h3>
-          <NuxtLink to="/cart-page"
+          <NuxtLink
+            to="/cart-page"
             class="btn btn-success mt-5"
             id="button-go-to-cart"
             >Xem giỏ hàng</NuxtLink
@@ -109,13 +114,15 @@
       </div>
     </div>
     <!-- Loader -->
-    <Loader :isLoading="isLoading"/>
+    <Loader :isLoading="isLoading" />
     <!-- End Loader -->
   </div>
 </template>
 <script>
+import globalMixin from "~/mixins/global";
 export default {
   layout: "page-detail",
+  mixins: [globalMixin],
   data() {
     return {
       qtyOrder: [],

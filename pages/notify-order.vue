@@ -15,10 +15,13 @@
           />
           <span>Đặt hàng thành công!</span>
         </p>
-        <p>Cảm ơn quý khách đã đặt hàng tại hệ thống <b>Lotus Thé Shop</b>!</p>
         <p>
-          Nhân viên chăm sóc <b>Lotus Thé Shop</b> sẽ liên hệ tới bạn sớm nhất có
-          thể.
+          Cảm ơn quý khách đã đặt hàng tại hệ thống
+          <b>Lotus Thé thuộc công ty TMShop</b>!
+        </p>
+        <p>
+          Nhân viên chăm sóc <b>Lotus Thé thuộc công ty TMShop</b> sẽ liên hệ
+          tới bạn sớm nhất có thể.
         </p>
       </div>
       <div class="section-detail mt-5">
@@ -74,9 +77,9 @@
                 />
               </td>
               <td>{{ detailCart.product.name }}</td>
-              <td>{{ detailCart.product.price_sale }}</td>
+              <td>{{ convertUSDToVND(detailCart.product.price_sale) }}</td>
               <td>{{ detailCart.product.quantity }}</td>
-              <td>${{ detailCart.product.subTotal }}</td>
+              <td>{{ convertUSDToVND(detailCart.product.subTotal) }}</td>
             </tr>
             <tr>
               <td></td>
@@ -84,7 +87,7 @@
               <td></td>
               <td></td>
               <td class="total-price">Giảm:</td>
-              <td>-${{ pricePromotion }}</td>
+              <td>-{{ convertUSDToVND(pricePromotion) }}</td>
             </tr>
           </tbody>
           <tfoot class="tfoot">
@@ -94,7 +97,7 @@
               <td></td>
               <td></td>
               <td class="total-price">Tổng:</td>
-              <td>${{ bill.order.total_mount }}</td>
+              <td>{{ convertUSDToVND(bill.order.total_mount) }}</td>
             </tr>
           </tfoot>
         </table>
@@ -155,7 +158,10 @@
 </template>
 
 <script>
+import globalMixin from "~/mixins/global";
+
 export default {
+  mixins: [globalMixin],
   data() {
     return {
       totalPrice: 0,
