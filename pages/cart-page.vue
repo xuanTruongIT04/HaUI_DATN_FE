@@ -439,7 +439,6 @@ export default {
         let isQtyValid = true;
         this.detailCarts.forEach((item) => {
           dataUpdate[item.id] = parseInt(item.quantity);
-          console.log(item);
           if (
             item.quantity < 0 ||
             item.quantity + item.product.qty_sold > item.product.qty_import
