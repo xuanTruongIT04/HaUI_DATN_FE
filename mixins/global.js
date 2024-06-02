@@ -1,3 +1,4 @@
+import { PaymentMethod, StatusOrder } from '~/helpers/Constant';
 export default {
   methods: {
     getTitleBreadCrumb() {
@@ -22,6 +23,24 @@ export default {
         return text.slice(0, maxLength) + "...";
       }
     },
+    convertUSDToVND(number, suffix = ' VND') {
+      const exchangeRate = 25450.0;
+      if (number !== null && number !== undefined) {
+        const formattedNumber = (number * exchangeRate).toLocaleString('vi') + suffix;
+        return formattedNumber;
+      } else {
+        return "<span class='text-muted'>Chưa cập nhật</span>";
+      }
+    },
+
+    getPaymentMethodText(typePaymentMethod) {
+      return PaymentMethod[typePaymentMethod] || 'Phương thức thanh toán không xác định';
+    },
+
+    getStatusOrderText(statusOrder) {
+      return StatusOrder[statusOrder] || 'Trạng thái đơn hàng không xác định';
+    }
+
   },
 };
 

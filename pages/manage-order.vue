@@ -5,7 +5,9 @@
       <div class="row" v-if="orderList">
         <div class="col-lg-12 col-md-12 col-sm-12 col-12">
           <form action="#">
-            <div class="table-content table-responsive order-list">
+            <div
+              class="table-content table-striped table-responsive order-list"
+            >
               <table>
                 <thead>
                   <tr>
@@ -21,41 +23,65 @@
                 <tbody>
                   <tr v-for="item in orderList" :key="item.id">
                     <td class="order-price-cart">
-                      {{ item }}
-                      <span class="amount">${{ item.code }}</span>
+                      <span class="code">{{ briefName(item.code, 20) }}</span>
                     </td>
                     <td class="order-name">
-                      <a :href="`order/${item.address_delivery}`">{{
-                        item.address_delivery
-                      }}</a>
-                    </td>
-                    <td class="order-price-cart">
-                      <span class="payment-method"
-                        >${{ item.payment_method }}</span
+                      <span
+                        v-if="item.address_delivery"
+                        class="address-delivery"
+                        >{{ briefName(item.address_delivery, 30) }}</span
+                      >
+                      <span v-else class="address-delivery text-muted small"
+                        ><i>Đang cập nhật...</i></span
                       >
                     </td>
-                    <!-- <td class="order-quantity">
-                      <div class="pro-dec-cart">
-                        <input
-                          class="cart-plus-minus-box"
-                          type="number"
-                          min="0"
-                          :max="qtyRemain(item.qty_import, item.qty_sold)"
-                          :name="item.id"
-                          @input="setMaxQty(item.qty_import, item.qty_sold)"
-                          v-model="item.qtyOrder"
-                          @change="changeQtyOrder(item)"
-                        />
-                      </div>
-                    </td> -->
+                    <td class="order-price-cart">
+                      <span
+                        class="payment-method badge badge-light"
+                        v-if="item.payment_method == paymentMethodValue['CASH']"
+                        >{{ getPaymentMethodText(item.payment_method) }}</span
+                      >
+                      <span class="payment-method badge badge-info" v-else>{{
+                        getPaymentMethodText(item.payment_method)
+                      }}</span>
+                    </td>
                     <td class="product-subtotal">
-                      <span>{{ item.total_mount }}</span>
+                      <span>{{ convertUSDToVND(item.total_mount) }}</span>
                     </td>
                     <td class="order-date">
                       <span>{{ item.order_date }}</span>
                     </td>
                     <td class="order-status">
-                      <span>{{ item.status }}</span>
+                      <span
+                        class="badge badge-info"
+                        v-if="item.status == statusOrderValue['ORDERD']"
+                        >{{ getStatusOrderText(item.status) }}</span
+                      >
+                      <span
+                        class="badge badge-primary"
+                        v-else-if="
+                          item.status == statusOrderValue['PROCESSING']
+                        "
+                        >{{ getStatusOrderText(item.status) }}</span
+                      >
+                      <span
+                        class="badge badge-warning"
+                        v-else-if="item.status == statusOrderValue['PAID']"
+                        >{{ getStatusOrderText(item.status) }}</span
+                      >
+                      <span class="badge badge-danger" v-else>{{
+                        getStatusOrderText(item.status)
+                      }}</span>
+                    </td>
+
+                    <!-- v-if="item.status < statusOrderValue['PAID'] -->
+                    <td class="order-detail">
+                      <button
+                        @click.prevent="showOrderDetail(item.id)"
+                        class="btn btn-success order-detail badge badge-light"
+                      >
+                        Chi tiết
+                      </button>
                     </td>
                   </tr>
                 </tbody>
@@ -77,33 +103,30 @@
           </h3>
         </div>
       </div>
-      <div class="row" v-else>
-        <div class="col-lg-8 col-md-8 col-sm-8 col-8 mx-auto my-0 text-center">
-          <!-- <img
-            src="~static/img/product/ordered.jpg"
-            alt="Hãy đến giỏ hàng để tiếp tục đến với thủ tục thanh toán và thông tin
-            nhận hàng"
-            style="max-height: 200px; max-width: 350px"
-          /> -->
-          <!-- <h3 class="text-center text-success mt-2 content-go-to-cart">
-            Đã thêm vào giỏ hàng thành công, hãy đến giỏ hàng để tiếp tục đến
-            với thủ tục thanh toán và thông tin nhận hàng
-          </h3>
-          <NuxtLink
-            to="/cart-page"
-            class="btn btn-success mt-5"
-            id="button-go-to-cart"
-            >Xem giỏ hàng</NuxtLink
-          > -->
-        </div>
-      </div>
     </div>
+    <!-- Modal -->
+
+    <ModalDetailOrder
+      :showDetailOrder="showDetailOrder"
+      :infoListProductOrder="infoListProductOrder"
+      :infoListDetailOrder="infoListDetailOrder"
+      :infoCoupon="infoCoupon"
+      :infoOrder="infoOrder"
+      @closeDetailOrder="closeDetailOrder"
+    />
+    <!-- <SuccessModal v-if="showSuccessModal" @closeModal="handleCloseModal" /> -->
+    <!-- Modal end -->
+
     <!-- Loader -->
     <Loader :isLoading="isLoading" />
     <!-- End Loader -->
   </div>
 </template>
 <script>
+import globalMixin from "~/mixins/global";
+import { StatusOrderValue, PaymentMethodValue } from "~/helpers/Constant";
+import { CheckoutMethods } from "~/helpers/Constant";
+
 export default {
   layout: "page-detail",
   data() {
@@ -111,27 +134,33 @@ export default {
       qtyOrder: [],
       ordered: false,
       isLoading: true,
+      statusOrderValue: StatusOrderValue,
+      paymentMethodValue: PaymentMethodValue,
+      showDetailOrder: false,
+      infoListProductOrder: [],
+      infoListDetailOrder: [],
+      infoCoupon: [],
+      infoOrder: {},
+      orderIdUpdate: "",
     };
+  },
+  async created() {
+    let query = this.$route.query;
+
+    if (!query.cancel && query.status) {
+      this.submitOrderAfterCheckout(query);
+    } else if (query.cancel && query.status) {
+      this.reloadPageWithNotify();
+    }
+  },
+
+  mounted() {
+    this.isLoading = false;
   },
   async asyncData({ $axios }) {
     try {
       const response = await $axios.get("/order/get-list-order");
       const orderList = response.data.data ?? [];
-
-      // orderList.forEach((item) => {
-      //   item.qtyOrder = 1;
-      //   let discountedPrice;
-      //   if (item.discount !== null) {
-      //     discountedPrice = (
-      //       (item.price * (100 - item.discount)) /
-      //       100
-      //     ).toFixed(2);
-      //   } else {
-      //     discountedPrice = item.price;
-      //   }
-      //   item.discountedPrice = discountedPrice;
-      //   item.subtotal = (item.qtyOrder * item.discountedPrice).toFixed(2);
-      // });
 
       return {
         orderList: orderList,
@@ -143,15 +172,95 @@ export default {
       };
     }
   },
+  mixins: [globalMixin],
+  methods: {
+    showOrderDetail(id) {
+      this.isLoading = true;
+      this.showDetailOrder = true;
+      this.getOrderDetailById(id);
+      this.isLoading = false;
+    },
 
-  mounted() {
-    this.isLoading = false;
+    getOrderDetailById(id) {
+      this.infoOrder = this.orderList.find((order) => order.id == id);
 
-    console.log(this.orderList);
+      if (this.infoOrder) {
+        this.infoCoupon = this.infoOrder.coupon;
+
+        this.infoListDetailOrder = this.infoOrder.detail_orders;
+
+        this.infoListProductOrder = this.infoOrder.detail_orders.map(
+          (detailOrder) => {
+            return detailOrder.product;
+          }
+        );
+      } else {
+        this.$toast.error("Đơn hàng đang cập nhật, vui lòng thử lại sau!");
+      }
+    },
+
+    closeDetailOrder() {
+      this.showDetailOrder = false;
+    },
+
+    async submitOrderAfterCheckout(dataQuery = "") {
+      this.isLoading = true;
+      this.paymentMethod = CheckoutMethods.CASH;
+
+      if (dataQuery) {
+        if (!dataQuery?.cancel) {
+          this.paymentMethod = CheckoutMethods.BANKING_INTERNET;
+        }
+
+        this.orderIdUpdate = this.regDoubleQuote(
+          this.$localStorage.getItem("orderIdUpdate")
+        );
+      }
+
+      const dataUpdate = {
+        payment_method: this.paymentMethod,
+        status: StatusOrderValue["PAID"],
+      };
+
+      const payload = JSON.stringify(dataUpdate);
+
+      const resSubmit = await this.$axios.put(
+        `/order/update/${this.orderIdUpdate}`,
+        payload,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      this.isLoading = false;
+      let data = resSubmit?.data?.data;
+      this.$toast.success(
+        "Thanh toán đơn hàng, cập nhật trạng thái đơn hàng thành công!"
+      );
+      this.$router.push("/manage-order");
+
+      // Delete local storage
+      this.$localStorage.removeItem("orderIdUpdate");
+    },
+
+    reloadPageWithNotify() {
+      this.$toast.error(
+        "Bạn đã thoát khỏi trang thanh toán, quá trình cập nhật thất bại, vui lòng thử lại sai"
+      );
+
+      this.$router.push("/manage-order");
+    },
+
+    regDoubleQuote(url) {
+      if (url && url.includes('"')) {
+        url = url.replace(/"/g, "");
+      }
+
+      return url;
+    },
   },
-
   computed: {},
-  methods: {},
 };
 </script>
 <style lang="css">
@@ -190,5 +299,10 @@ table {
 
 .content-go-to-cart {
   line-height: 40px;
+}
+
+.order-detail:hover {
+  cursor: pointer;
+  color: #fff;
 }
 </style>
